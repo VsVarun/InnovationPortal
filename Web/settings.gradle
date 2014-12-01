@@ -1,0 +1,4 @@
+include ':ObjectModel'
+project(':ObjectModel').projectDir = new File(settingsDir, '../ObjectModel')
+include ':Facade'
+project(':Facade').projectDir = new File(settingsDir, '../Facade')

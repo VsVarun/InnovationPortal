@@ -1,0 +1,2 @@
+include ':ObjectModel'
+project(':ObjectModel').projectDir = new File(settingsDir, '../ObjectModel')

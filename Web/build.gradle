@@ -1,0 +1,16 @@
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://repo.spring.io/libs-release" }
+}
+
+dependencies {
+	compile project(':ObjectModel')
+	compile project(':Facade')
+	compile('org.springframework:spring-web:4.1.2.RELEASE')
+	compile('org.springframework:spring-webmvc:4.1.2.RELEASE')
+	compile('javax.servlet:javax.servlet-api:3.1.0')
+} 
