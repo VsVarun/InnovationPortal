@@ -29,15 +29,15 @@ import com.iri.ip.objectModel.UserInfo;
 @RequestMapping("/Authenticate")
 public class AuthenticationController {
 	
-	@RequestMapping(value = "/SignIn", method = RequestMethod.GET, produces=(MimeTypeUtils.APPLICATION_JSON_VALUE))
-    public @ResponseBody UserInfo signIn() throws Exception {
+	@RequestMapping(value = "/SignIn", method = RequestMethod.GET, produces = (MimeTypeUtils.APPLICATION_JSON_VALUE))
+	public @ResponseBody UserInfo signIn() throws Exception {
 
 		String username = "prsaq";
 		String password = new String(Base64.getDecoder().decode("aXJpQDU0Mw=="));
 
 		ActiveDirectoryLdapAuthenticationProvider ldapProvider = AppContext
-				.getAuthBean(ActiveDirectoryLdapAuthenticationProvider.class);		
-		
+				.getAuthBean(ActiveDirectoryLdapAuthenticationProvider.class);
+
 		UserInfo ui = new UserInfo();
 		try {
 			Authentication authResult = ldapProvider
@@ -50,5 +50,5 @@ public class AuthenticationController {
 			// password
 		}
 		return ui;
-    }
+	}
 }

@@ -1,5 +1,9 @@
 package com.iri.ip.config;
 
+import java.util.Base64;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -30,9 +34,17 @@ public class AuthenticationConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Bean
-	public ActiveDirectoryLdapAuthenticationProvider authenticator() {
-		String domain = "infores.com";
-		String url = "LDAP://crpdcw201p.infores.com:389";
+	public ActiveDirectoryLdapAuthenticationProvider authenticator()
+			throws Exception {
+		ResourceBundle bundle = new PropertyResourceBundle(this.getClass()
+				.getClassLoader()
+				.getResourceAsStream("META-INF/config/ldap.properties"));
+
+		String domain = new String(Base64.getDecoder().decode(
+				bundle.getString("ldap.domain")));
+		String url = new String(Base64.getDecoder().decode(
+				bundle.getString("ldap.url")));
+
 		ActiveDirectoryLdapAuthenticationProvider authProvider = new ActiveDirectoryLdapAuthenticationProvider(
 				domain, url);
 		authProvider.setConvertSubErrorCodesToExceptions(true);
