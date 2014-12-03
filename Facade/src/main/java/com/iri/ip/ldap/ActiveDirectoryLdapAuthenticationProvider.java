@@ -1,4 +1,4 @@
-package com.iri.ip.facade.framework;
+package com.iri.ip.ldap;
 
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.ldap.core.DirContextOperations;

@@ -1,4 +1,4 @@
-package com.iri.ip.facade.framework;
+package com.iri.ip.ldap;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.ldap.authentication.ad.ActiveDirectoryLdapAuthenticationProvider;
