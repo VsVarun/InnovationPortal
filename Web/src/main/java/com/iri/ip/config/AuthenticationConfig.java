@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import com.iri.ip.facade.IAuthenticationFacade;
+import com.iri.ip.facade.impl.AuthenticationImpl;
 import com.iri.ip.ldap.ActiveDirectoryLdapAuthenticationProvider;
 
 /**
@@ -33,7 +35,6 @@ public class AuthenticationConfig extends WebSecurityConfigurerAdapter {
 		super.configure(auth);
 	}
 
-	@Bean
 	public ActiveDirectoryLdapAuthenticationProvider authenticator()
 			throws Exception {
 		ResourceBundle bundle = new PropertyResourceBundle(this.getClass()
@@ -50,5 +51,14 @@ public class AuthenticationConfig extends WebSecurityConfigurerAdapter {
 		authProvider.setConvertSubErrorCodesToExceptions(true);
 		authProvider.setUseAuthenticationRequestCredentials(true);
 		return authProvider;
+	}
+	
+	/**
+	 * @return
+	 * @throws Exception 
+	 */
+	@Bean
+	public IAuthenticationFacade authenticate() throws Exception{
+		return new AuthenticationImpl(authenticator());
 	}
 }

@@ -106,7 +106,7 @@ public final class ActiveDirectoryLdapAuthenticationProvider extends AbstractLda
     }
 
     @Override
-    protected DirContextOperations doAuthentication(UsernamePasswordAuthenticationToken auth) {
+    public DirContextOperations doAuthentication(UsernamePasswordAuthenticationToken auth) {
         String username = auth.getName();
         String password = (String)auth.getCredentials();
 

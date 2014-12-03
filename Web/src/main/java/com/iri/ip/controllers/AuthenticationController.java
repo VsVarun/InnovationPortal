@@ -2,9 +2,6 @@ package com.iri.ip.controllers;
 
 import java.util.Base64;
 
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.iri.ip.config.AppContext;
-import com.iri.ip.ldap.ActiveDirectoryLdapAuthenticationProvider;
+import com.iri.ip.facade.IAuthenticationFacade;
 import com.iri.ip.objectModel.UserInfo;
 
 /**
@@ -32,23 +29,19 @@ public class AuthenticationController {
 	@RequestMapping(value = "/SignIn", method = RequestMethod.GET, produces = (MimeTypeUtils.APPLICATION_JSON_VALUE))
 	public @ResponseBody UserInfo signIn() throws Exception {
 
-		String username = "prsaq";
+		String userID = "prsaq";
 		String password = new String(Base64.getDecoder().decode("aXJpQDU0Mw=="));
 
-		ActiveDirectoryLdapAuthenticationProvider ldapProvider = AppContext
-				.getAuthBean(ActiveDirectoryLdapAuthenticationProvider.class);
+		IAuthenticationFacade facade = AppContext
+				.getAuthBean(IAuthenticationFacade.class);
 
-		UserInfo ui = new UserInfo();
+		UserInfo ui = null;
 		try {
-			Authentication authResult = ldapProvider
-					.authenticate(new UsernamePasswordAuthenticationToken(
-							username, password));
-			UserDetails userDetails = (UserDetails) authResult.getPrincipal();
-			ui.setLoginID(userDetails.getUsername());
+			ui = facade.signIn(userID, password);
 		} catch (Exception e) {
-			// Eating the LDAP exception mainly caused by invalid user name and
-			// password
+			e.printStackTrace();
 		}
 		return ui;
-	}
+	}	
+	
 }
