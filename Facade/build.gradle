@@ -9,4 +9,7 @@ repositories {
 
 dependencies {
 	compile project(':ObjectModel')
+	compile('org.springframework.security:spring-security-config:3.2.5.RELEASE')
+	compile('org.springframework.ldap:spring-ldap-core:2.0.2.RELEASE')
+	compile('org.springframework.security:spring-security-ldap:3.2.5.RELEASE')
 }
