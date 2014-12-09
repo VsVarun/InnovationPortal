@@ -1,9 +1,5 @@
 <select data-placeholder="Categorize your idea" id="CategoryList" data-rel="chosen-select-deselect">
-	#foreach ($mapEntry in $CategoryMap.entrySet())
-	<optgroup label="$mapEntry.key">
-		#foreach( $Category in $mapEntry.value )
-		<option />$Category.getSubCategoryName()
-		#end
-	</optgroup>
+	#foreach ($Category in $CategoryList)
+	<option />$Category.getCategoryName()
 	#end
 </select>

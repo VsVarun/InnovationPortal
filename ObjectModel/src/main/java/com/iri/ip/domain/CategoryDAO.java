@@ -30,7 +30,6 @@ public class CategoryDAO implements Serializable{
 	@Id
 	private BigInteger categoryID;
 	private String categoryName;
-	private String subCategoryName;
 
 	/**
 	 * 
@@ -41,13 +40,10 @@ public class CategoryDAO implements Serializable{
 	/**
 	 * @param categoryID
 	 * @param categoryName
-	 * @param subCategoryName
 	 */
-	public CategoryDAO(String categoryName,
-			String subCategoryName) {
+	public CategoryDAO(String categoryName) {
 		super();
 		this.categoryName = categoryName;
-		this.subCategoryName = subCategoryName;
 	}
 
 	/**
@@ -78,27 +74,13 @@ public class CategoryDAO implements Serializable{
 		this.categoryName = categoryName;
 	}
 
-	/**
-	 * @return the subCategoryName
-	 */
-	public String getSubCategoryName() {
-		return subCategoryName;
-	}
-
-	/**
-	 * @param subCategoryName the subCategoryName to set
-	 */
-	public void setSubCategoryName(String subCategoryName) {
-		this.subCategoryName = subCategoryName;
-	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "CategoryDAO [categoryID=" + categoryID + ", categoryName="
-				+ categoryName + ", subCategoryName=" + subCategoryName + "]";
+				+ categoryName + "]";
 	}
 
 }

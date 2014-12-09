@@ -56,13 +56,12 @@ public class CategoryRepository {
 	
 	public String getAllAsDropDown(){
 		List<CategoryDAO> categoryList = getAll();
-		Map<String, List<CategoryDAO>> finalList = getCategoryHierarchy(categoryList);
 		String innerHTML = "";
 		VelocityContext context = null;
 		try {
-			if( finalList!=null ){
+			if( categoryList!=null ){
 				context = new VelocityContext();
-				context.put("CategoryMap", finalList);
+				context.put("CategoryList", categoryList);
 				innerHTML = TemplateUtils.parseTemplate(context, CATEGORY_LIST_VM);
 			}
 		} catch (Exception e) {

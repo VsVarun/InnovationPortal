@@ -1,40 +1,15 @@
 [ {
-  "categoryName" : "Category 1",
-  "subCategoryName" : "Sub Category 1"
+  "categoryName" : "New Features"
 }, {
-  "categoryName" : "Category 1",
-  "subCategoryName" : "Sub Category 2"
+  "categoryName" : "Ideation"
 }, {
-  "categoryName" : "Category 1",
-  "subCategoryName" : "Sub Category 3"
+  "categoryName" : "Process Improvement"
 }, {
-  "categoryName" : "Category 2",
-  "subCategoryName" : "Sub Category 1"
+  "categoryName" : "Technology N Trends"
 }, {
-  "categoryName" : "Category 2",
-  "subCategoryName" : "Sub Category 2"
+  "categoryName" : "Productivity"
 }, {
-  "categoryName" : "Category 2",
-  "subCategoryName" : "Sub Category 3"
+  "categoryName" : "Cost of Ownership"
 }, {
-  "categoryName" : "Category 2",
-  "subCategoryName" : "Sub Category 4"
-}, {
-  "categoryName" : "Category 2",
-  "subCategoryName" : "Sub Category 5"
-}, {
-  "categoryName" : "Category 3",
-  "subCategoryName" : "Sub Category 1"
-}, {
-  "categoryName" : "Category 3",
-  "subCategoryName" : "Sub Category 2"
-}, {
-  "categoryName" : "Category 3",
-  "subCategoryName" : "Sub Category 3"
-}, {
-  "categoryName" : "Category 4",
-  "subCategoryName" : "Sub Category 1"
-}, {
-  "categoryName" : "Category 4",
-  "subCategoryName" : "Sub Category 2"
+  "categoryName" : "Operational Efficiency"
 } ]
