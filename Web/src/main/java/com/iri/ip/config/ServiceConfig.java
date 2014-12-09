@@ -3,11 +3,7 @@
  */
 package com.iri.ip.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.iri.ip.facade.IAuthenticationFacade;
-import com.iri.ip.facade.impl.AuthenticationImpl;
 
 /**
  * @author		: Varun Chandresekar 
@@ -22,12 +18,4 @@ import com.iri.ip.facade.impl.AuthenticationImpl;
 @Configuration
 public class ServiceConfig {
 
-	/**
-	 * @return
-	 */
-	@Bean
-	public IAuthenticationFacade authenticate(){
-		return new AuthenticationImpl();
-	}
-	
 }
