@@ -9,7 +9,7 @@ repositories {
 
 dependencies {
 	compile project(':ObjectModel')
-	compile('org.springframework.security:spring-security-config:3.2.5.RELEASE')
-	compile('org.springframework.ldap:spring-ldap-core:2.0.2.RELEASE')
-	compile('org.springframework.security:spring-security-ldap:3.2.5.RELEASE')
+	compile('com.google.guava:guava:18.0')
+	compile('org.codehaus.jackson:jackson-mapper-asl:1.9.13')
+	compile('org.apache.velocity:velocity:1.7')
 }

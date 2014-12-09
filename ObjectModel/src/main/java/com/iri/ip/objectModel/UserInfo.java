@@ -26,8 +26,6 @@ public class UserInfo implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String loginID;
-	private String email;
-	
 	/**
 	 * 
 	 */
@@ -103,20 +101,6 @@ public class UserInfo implements Serializable {
 		this.loginID = loginID;
 	}
 	
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -125,8 +109,7 @@ public class UserInfo implements Serializable {
 		return "UserInfo [userID=" + userID + ", "
 				+ (firstName != null ? "firstName=" + firstName + ", " : "")
 				+ (lastName != null ? "lastName=" + lastName + ", " : "")
-				+ (loginID != null ? "loginID=" + loginID + ", " : "")
-				+ (email != null ? "email=" + email : "") + "]";
+				+ (loginID != null ? "loginID=" + loginID : "") + "]";
 	}
 
 }

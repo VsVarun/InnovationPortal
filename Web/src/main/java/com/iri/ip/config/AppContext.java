@@ -57,17 +57,17 @@ public class AppContext {
 	}
 	
 	/*
-	 * This API would return the Authentication Bean for the provided ClassType
+	 * This API would return the Mongo DB Repository Bean for the provided ClassType
 	 * This API uses AnnotationConfigApplicationContext rather than Application Context
 	 * @param BeanType
 	 * @return
 	 */
 	@SuppressWarnings("resource")
-	public static <T> T getAuthBean(Class<T> BeanType) throws Exception{
+	public static <T> T getRepositoryBean(Class<T> BeanType) throws Exception{
 		T retVal = null;
 		ApplicationContext ctx = null;
 		try{
-			ctx = new AnnotationConfigApplicationContext(AuthenticationConfig.class);
+			ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
 			retVal = ctx.getBean(BeanType);
 		}catch(Exception e){
 			throw new Exception("Class Type : "+BeanType+" - Not Wired | Not an Component");
@@ -75,4 +75,3 @@ public class AppContext {
 		return retVal;
 	}
 }
-

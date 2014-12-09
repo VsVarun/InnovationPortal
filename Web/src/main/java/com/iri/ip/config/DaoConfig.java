@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date_Time	: Nov 24, 2014_2:17:34 AM
  */
 @Configuration
-@ComponentScan(basePackages = "com.iri.ip.component")
+@ComponentScan(basePackages = "com.iri.ip.domain")
 public class DaoConfig {
 
 }
