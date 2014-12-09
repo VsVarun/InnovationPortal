@@ -3,6 +3,8 @@
 	<name>Web</name>
 	<comment></comment>
 	<projects>
+		<project>Facade</project>
+		<project>ObjectModel</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
 });	
 
 function loadCategoryList(){
-	getHMTL("./Services/Category/getAllAsDropDown", function (innerHTML) {
+	getHMTL("../../../Services/Category/getAllAsDropDown", function (innerHTML) {
 		document.getElementById("CategoryDropDown").innerHTML = innerHTML;
     }, null);
 }
