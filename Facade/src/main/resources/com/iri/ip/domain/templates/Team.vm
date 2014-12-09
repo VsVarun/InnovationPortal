@@ -1,0 +1,5 @@
+<select data-placeholder="Select Your Team" id="TeamList" data-rel="chosen-select-deselect">
+	#foreach ($Team in $TeamList)
+	<option />$Team.getTeamName()
+	#end
+</select>

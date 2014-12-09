@@ -16,4 +16,5 @@ package com.iri.ip.constants;
 public class VMConstants {
 
 	public final static String CATEGORY_LIST_VM = "Category.vm";
+	public final static String TEAM_LIST_VM 	= "Team.vm";
 }

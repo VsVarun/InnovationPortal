@@ -3,7 +3,7 @@
  */
 package com.iri.ip.repository;
 
-import static com.iri.ip.constants.VMConstants.CATEGORY_LIST_VM;
+import static com.iri.ip.constants.VMConstants.TEAM_LIST_VM;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
-import com.iri.ip.domain.CategoryDAO;
+import com.iri.ip.domain.TeamDAO;
 import com.iri.ip.utils.TemplateUtils;
 import com.mongodb.util.JSON;
 
@@ -25,13 +25,13 @@ import com.mongodb.util.JSON;
  * @user		: [ schand07 ]
  * @citrixID	: [ prsch ]
  * @desc		: 
- * @fileName	: CategoryRepository.java
+ * @fileName	: TeamRepository.java
  * @packageName	: com.iri.ip.repository
  * @projectName	: Facade
- * @Date_Time	: Dec 2, 2014_3:08:59 PM
+ * @Date_Time	: Dec 9, 2014_11:40:23 PM
  */
 @Repository
-public class CategoryRepository {
+public class TeamRepository {
 	
 	@Autowired
 	MongoTemplate mongoTemplate;
@@ -40,10 +40,10 @@ public class CategoryRepository {
 	 * API 
 	 * @return
 	 */
-	public List<CategoryDAO> getAll(){
-		List<CategoryDAO> retVal = null;
-		if(this.mongoTemplate.collectionExists(CategoryDAO.class)){
-			retVal = this.mongoTemplate.findAll(CategoryDAO.class);
+	public List<TeamDAO> getAll(){
+		List<TeamDAO> retVal = null;
+		if(this.mongoTemplate.collectionExists(TeamDAO.class)){
+			retVal = this.mongoTemplate.findAll(TeamDAO.class);
 			if(retVal.size() < 1){
 				initializeCollection();
 				getAll();
@@ -56,14 +56,14 @@ public class CategoryRepository {
 	}
 	
 	public String getAllAsDropDown(){
-		List<CategoryDAO> categoryList = getAll();
+		List<TeamDAO> teamList = getAll();
 		String innerHTML = "";
 		VelocityContext context = null;
 		try {
-			if( categoryList!=null ){
+			if( teamList!=null ){
 				context = new VelocityContext();
-				context.put("CategoryList", categoryList);
-				innerHTML = TemplateUtils.parseTemplate(context, CATEGORY_LIST_VM);
+				context.put("TeamList", teamList);
+				innerHTML = TemplateUtils.parseTemplate(context, TEAM_LIST_VM);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -72,8 +72,8 @@ public class CategoryRepository {
 	}
 	
 	public void createCollection(){
-		if(!this.mongoTemplate.collectionExists(CategoryDAO.class)){
-			this.mongoTemplate.createCollection(CategoryDAO.class);
+		if(!this.mongoTemplate.collectionExists(TeamDAO.class)){
+			this.mongoTemplate.createCollection(TeamDAO.class);
 		}
 		initializeCollection();
 	}
@@ -81,12 +81,12 @@ public class CategoryRepository {
 	@SuppressWarnings("unchecked")
 	public void initializeCollection(){
 		try {
-			if(this.mongoTemplate.collectionExists(CategoryDAO.class)){
-				if(this.mongoTemplate.findAll(CategoryDAO.class).size() < 1){
-					URL url = Resources.getResource("com/iri/ip/domain/data/seed/Category.JSON");
+			if(this.mongoTemplate.collectionExists(TeamDAO.class)){
+				if(this.mongoTemplate.findAll(TeamDAO.class).size() < 1){
+					URL url = Resources.getResource("com/iri/ip/domain/data/seed/Team.JSON");
 					String json = Resources.toString(url, Charsets.UTF_8);
-					List<CategoryDAO> categoryDaoList = (List<CategoryDAO>) JSON.parse(json);
-					this.mongoTemplate.insert(categoryDaoList,CategoryDAO.class);
+					List<TeamDAO> teamDaoList = (List<TeamDAO>) JSON.parse(json);
+					this.mongoTemplate.insert(teamDaoList,TeamDAO.class);
 				}
 			}
 		} catch (IOException e) {
@@ -95,11 +95,9 @@ public class CategoryRepository {
 	}
 	
 	public void dropCollection(){
-		if(this.mongoTemplate.collectionExists(CategoryDAO.class)){
-			this.mongoTemplate.dropCollection(CategoryDAO.class);
+		if(this.mongoTemplate.collectionExists(TeamDAO.class)){
+			this.mongoTemplate.dropCollection(TeamDAO.class);
 		}
 	}
 	
-	
-
 }
