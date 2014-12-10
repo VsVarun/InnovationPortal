@@ -1,7 +1,7 @@
 jQuery(document).ready(function($){
 	
-	//loadCategoryList();
-	//loadTeamList();
+	loadCategoryList();
+	loadTeamList();
 	
     $("#IdeaSubmission").submit(function (event) {
       
