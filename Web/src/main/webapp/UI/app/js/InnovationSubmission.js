@@ -64,22 +64,22 @@ function innovationsubValidation() {
     var missingfieldcount = 0;
    
 
-    if($("#ideaSummary").val()=='') {
+    if($("#ideaSummary").val().trim()=='') {
         validationstatus = false;
         missingfields = 'Summary' + ', ';
         missingfieldcount = 1;
     }
-    if ($("#ideaDescription").val() == '') {
+    if ($("#ideaDescription").val().trim() == '') {
         validationstatus = false;
         missingfields = missingfields + 'Description' + ', ';
         missingfieldcount = missingfieldcount + 1;
     }
-    if ($("#ideaBenefits").val() == '') {
+    if ($("#ideaBenefits").val().trim() == '') {
         validationstatus = false;
         missingfields = missingfields  + 'Benefits' + ', ';
         missingfieldcount = missingfieldcount + 1;
     }
-    if ($("#ideaChallenges").val() == '') {
+    if ($("#ideaChallenges").val().trim() == '') {
         validationstatus = false;
         missingfields = missingfields + 'Challenges' + ', ';
         missingfieldcount = missingfieldcount + 1;
