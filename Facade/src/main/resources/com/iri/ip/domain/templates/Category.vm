@@ -1,4 +1,4 @@
-<select data-placeholder="Categorize your idea" id="CategoryList" data-rel="chosen-select-deselect">
+<select data-placeholder="Categorize your idea" id="CategoryList" class="chosen-select-deselect">
 	#foreach ($Category in $CategoryList)
 	<option />$Category.getCategoryName()
 	#end

@@ -13,15 +13,16 @@
 	<!-- end: Mobile Specific -->
 	
 	<!-- start: CSS -->
+	<link href="../../platform/js/library/SweetAlert/sweet-alert.css" id="alert-style" rel="stylesheet" />
 	<link href="../../platform/css/bootstrap.css" id="bootstrap-style" rel="stylesheet" />
 	<link href="../../platform/css/bootstrap-responsive.css" rel="stylesheet" />
 	<link href="../../platform/css/style.css" id="base-style" rel="stylesheet" />
 	<link href="../../platform/css/style-responsive.css" id="base-style-responsive" rel="stylesheet" />
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css' />
+	<link href="../../platform/font/platform-font-tahoma.css" id="font-style" rel="stylesheet" type="text/css"/>
 	<!-- end: CSS -->
 	
 	<!-- start: Favicon -->
-	<link rel="shortcut icon" href="./img/favicon.ico" />
+	<link rel="shortcut icon" href="../../platform/img/logo/iri_icon.png" />
 	<!-- end: Favicon -->
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -31,13 +32,13 @@
 	<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title="">
-				<h2><i class="halflings-icon pencil"></i><span class="break"></span><b>Submit an Idea</b></h2>
+				<h1><i class="halflings-icon pencil"></i><span class="break"></span>Submit an Idea</h1>
 				<div class="box-icon">
 					<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
 				</div>
 			</div>
 			<div class="box-content">
-				<form class="form-horizontal" >
+				<form id="IdeaSubmission" action="" class="form-horizontal" >
 					<fieldset>
 					  
 					  <div class="control-group" >
@@ -53,30 +54,30 @@
 					  </div>
 					 
 					  <div class="control-group">
-						<label class="control-label" for="focusedInput">Summary</label>
+						<label class="control-label" for="ideaSummary">Summary</label>
 						<div class="controls">
-						  <input class="input-xxlarge" id="focusedInput" type="text" value="" style="width:60%;"/>
+						  <input class="input-xxlarge" id="ideaSummary" type="text" value="" style="width:60%;"/>
 						</div>
 					  </div>
 
 					  <div class="control-group">
-						<label class="control-label" for="focusedInput">Description</label>
+						<label class="control-label" for="ideaDescription">Description</label>
 						 <div class="controls">
-							<textarea style="width:60%;height:100px;"></textarea>
+							<textarea id="ideaDescription" style="width:60%;height:100px;"></textarea>
 						 </div>
 					  </div>
 
 					  <div class="control-group">
-						<label class="control-label" for="focusedInput">Benefits</label>
+						<label class="control-label" for="ideaBenefits">Benefits</label>
 						 <div class="controls">
-							<textarea style="width:60%;height:100px;"></textarea>
+							<textarea id="ideaBenefits" style="width:60%;height:100px;"></textarea>
 						 </div>
 					  </div>
 
 					  <div class="control-group">
-						<label class="control-label" for="focusedInput">Challenges</label>
+						<label class="control-label" for="ideaChallenges">Challenges</label>
 						 <div class="controls">
-							<textarea style="width:60%;height:100px;"></textarea>
+							<textarea id="ideaChallenges" style="width:60%;height:100px;"></textarea>
 						 </div>
 					  </div>
 
@@ -94,37 +95,46 @@
 		
 	<div class="clearfix"></div>
 	
-
+	<!-- start: JavaScript-->
+	
+	<!-- start: PlatForm Scripts -->
 	<script src="../../platform/js/utility/restClient.js"></script>
-	<script src="../../platform/js/library/jquery-1.7.2.min.js"></script>
-	<script src="../../platform/js/library/jquery-ui-1.8.21.custom.min.js"></script>
+	<script src="../../platform/js/library/SweetAlert/sweet-alert.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery-1.11.1.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery-migrate-1.2.1.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery-ui-1.8.21.custom.min.js"></script>
 	<script src="../../platform/js/library/modernizr.js"></script>
 	<script src="../../platform/js/library/bootstrap.js"></script>
-	<script src="../../platform/js/library/jquery.cookie.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.cookie.js"></script>
 	<script src='../../platform/js/library/fullcalendar.min.js'></script>
-	<script src='../../platform/js/library/jquery.dataTables.min.js'></script>
+	<script src='../../platform/js/library/jQuery/jquery.dataTables.min.js'></script>
 	<script src="../../platform/js/library/excanvas.js"></script>
-	<script src="../../platform/js/library/jquery.flot.js"></script>
-	<script src="../../platform/js/library/jquery.flot.pie.js"></script>
-	<script src="../../platform/js/library/jquery.flot.stack.js"></script>
-	<script src="../../platform/js/library/jquery.flot.resize.min.js"></script>
-	<script src="../../platform/js/library/jquery.chosen.min.js"></script>
-	<script src="../../platform/js/library/jquery.uniform.min.js"></script>
-	<script src="../../platform/js/library/jquery.cleditor.min.js"></script>
-	<script src="../../platform/js/library/jquery.noty.js"></script>
-	<script src="../../platform/js/library/jquery.elfinder.min.js"></script>
-	<script src="../../platform/js/library/jquery.raty.min.js"></script>
-	<script src="../../platform/js/library/jquery.iphone.toggle.js"></script>
-	<script src="../../platform/js/library/jquery.uploadify-3.1.min.js"></script>
-	<script src="../../platform/js/library/jquery.gritter.min.js"></script>
-	<script src="../../platform/js/library/jquery.imagesloaded.js"></script>
-	<script src="../../platform/js/library/jquery.masonry.min.js"></script>
-	<script src="../../platform/js/library/jquery.knob.modified.js"></script>
-	<script src="../../platform/js/library/jquery.sparkline.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.flot.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.flot.pie.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.flot.stack.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.flot.resize.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.chosen.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.uniform.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.cleditor.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.noty.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.elfinder.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.raty.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.iphone.toggle.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.uploadify-3.1.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.gritter.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.imagesloaded.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.masonry.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.knob.modified.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.sparkline.min.js"></script>
 	<script src="../../platform/js/library/counter.js"></script>
 	<script src="../../platform/js/library/retina.js"></script>
 	<script src="../../platform/js/library/custom.js"></script>
+	<!-- end: PlatForm Scripts -->
+	
+	<!-- start: App Scripts -->
 	<script src="../js/InnovationSubmission.js"></script>
+	<!-- end: App Scripts -->
+	
 	<!-- end: JavaScript-->
 	
 </body>

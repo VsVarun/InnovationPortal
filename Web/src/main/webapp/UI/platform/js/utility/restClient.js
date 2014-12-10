@@ -15,42 +15,62 @@ var headerIdentifier = { key: "", value: "" };
 function postJSon(relativeURL, jsonData, callback, headers) {
     var xdr = new XMLHttpRequest();
     xdr.open("POST", relativeURL);
-    // xdr.setRequestHeader("Pragma", "no-cache");
-    //  xdr.setRequestHeader("Cache-Control", "no-cache");
     xdr.setRequestHeader("Content-Type", "application/json");
-    //xdr.setRequestHeader("Accept", "application/json");
     xdr.setRequestHeader("Content-Encoding", "UTF-8");
     if (headers != null && headers.length != 0) setHeaders(xdr, headers);
-    xdr.onreadystatechange = function () {
-        if (xdr.readyState == 4 && xdr.status == 200) {
-            if (typeof REST_CONSTANTS !== "undefined") {
-                if (xdr.responseText.indexOf(REST_CONSTANTS.UN_AUTHORIZED_TICKET) >= 0) {
-                    sessionStorage.clear();
-                    var CloseClass = "no-close";
-                    createAlert("OK", sessionExpireTitle, sessionExpireMsg, okCallback, CloseClass);
-                    $("#dialogAlert").dialog("open");
-                }
-                else {
-                    callback(xdr.responseText, xdr.getResponseHeader("StartTime"), xdr.getResponseHeader("EndTime"), xdr.getResponseHeader("TimeElapsed"));
-                }
-            }
-            else {
-                callback(xdr.responseText);
-            }
-        }
-        else if (xdr.readyState == 4 && xdr.status == 500) {
-            callback(xdr.responseText);
-        }
-        else if (xdr.readyState == 4 && xdr.status == 502) {
-            HideBusyIndicator();
-            createAlert("OK", sessionExpireTitle, serviceFailedMsg, okCallback);
-            $("#dialogAlert").dialog("open");
-        }
-        else if (xdr.readyState == 4 && xdr.status != 200) {
-
-        }
-    };
     xdr.send(jsonData);
+    
+    xdr.onreadystatechange = function () {
+    	if(xdr.readyState == 4){
+    		var response = buildResponse(xdr);
+    		if(response != null){
+    			callback(response);
+    		}
+    	}	
+    };
+}
+
+function buildResponse(xdr){
+	var respStatus = "";
+	if (xdr.status == 200) {
+		respStatus = "OK";
+    }
+	else if (xdr.status == 400) {
+		respStatus = "Bad Request";
+    }
+	else if (xdr.status == 401) {
+		respStatus = "UnAuthorized";
+    }
+	else if (xdr.status == 403) {
+		respStatus = "Forbidden";
+    }
+    else if (xdr.status == 404) {
+    	respStatus = "Service Not Found";
+    }
+    else if (xdr.status == 500) {
+    	respStatus = "Internal Error";
+    }
+    else if (xdr.status == 501) {
+    	respStatus = "Service Implemented";
+    }
+    else if (xdr.status == 502) {
+    	respStatus = "Service temporarily Overloaded";
+    }
+    else if (xdr.status == 503) {
+    	respStatus = "Gateway Timeout";
+    }
+    else if (xdr.status == 0) {
+    	respStatus = "No Transport";
+    }
+	var response = null;
+	if(respStatus != ""){
+		response = {
+			statusCode : xdr.status,
+			statusDesc : respStatus,
+			data :  xdr.responseText
+		};
+	}
+	return response; 
 }
 
 function post(relativeURL, data, callback, headers) {
