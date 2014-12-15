@@ -22,6 +22,11 @@ public class IdeaController {
 		return (List<IdeaDAO>) AppContext.getRepositoryBean(IdeaRepository.class).getAll();
     }
 	
+	@RequestMapping(value = "/getAllAsTable", method = RequestMethod.GET, produces=(MimeTypeUtils.TEXT_HTML_VALUE))
+    public @ResponseBody String getAllAsTable() throws Exception {
+		return AppContext.getRepositoryBean(IdeaRepository.class).getAllAsTable();
+    }
+	
 	@RequestMapping(value = "/Submit", method = RequestMethod.POST, consumes=(MimeTypeUtils.APPLICATION_JSON_VALUE))
     public void submit(@RequestBody IdeaDAO idea) throws Exception {
 		AppContext.getRepositoryBean(IdeaRepository.class).submitIdea(idea);

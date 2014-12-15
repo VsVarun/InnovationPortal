@@ -1,0 +1,23 @@
+#foreach ($Idea in $IdeaList)
+<tr>
+	<td>$Idea.getCategoryName()</td>
+	<td>$Idea.getTeamName()</td>
+	<td>$Idea.getSummary()</td>
+	<td><textarea id="ideaDescription" class="span12">$Idea.getDescription()</textarea></td>
+	<td><textarea id="ideaBenefits" class="span12">$Idea.getBenefits()</textarea></td>
+	<td><textarea id="ideaChallenges" class="span12">$Idea.getChallenges()</textarea></td>
+	<td class="center">
+		#if( $Idea.getStatus() == "Submitted")
+		<span class="label label-warning">
+		#elseif( $Idea.getStatus() == "Reviewed")
+		<span class="label label-success">
+		#elseif( $Idea.getStatus() == "Rejected" || $Idea.getStatus() == "Duplicate")
+		<span class="label label-important">
+		#else
+		<span class="label label-success">
+		#end
+		$Idea.getStatus()</span>
+	</td>
+	<td>$Idea.getCreatedDate()</td>
+</tr>
+#end
