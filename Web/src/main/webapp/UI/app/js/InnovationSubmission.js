@@ -3,11 +3,13 @@ jQuery(document).ready(function($){
 	loadCategoryList();
 	loadTeamList();
 	
+	$( "#cancelBtn" ).click(function() {
+    	location.href='home.html';
+	});
+	 
     $("#IdeaSubmission").submit(function (event) {
       
         var validationstatus = innovationsubValidation();
-      // alert(innovationsubValidation());
-
         if (validationstatus == true) {
            postJSon("../../../Services/Idea/Submit", buildPostData(), function (response) {
                if (response.statusCode == 200) {
@@ -20,9 +22,8 @@ jQuery(document).ready(function($){
 
 	   // Cancel the actual Submission
 	   event.preventDefault();
-
 	});
-	
+    
 });	
 
 function loadCategoryList(){
