@@ -9,7 +9,6 @@ jQuery(document).ready(function($){
       // alert(innovationsubValidation());
 
         if (validationstatus == true) {
-          // alert('posted');
            postJSon("../../../Services/Idea/Submit", buildPostData(), function (response) {
                if (response.statusCode == 200) {
                    swal("Idea Submitted!!!", "Thanks for your Valuable Submission...", "success");
@@ -19,11 +18,8 @@ jQuery(document).ready(function($){
            }, null);
        }
 
-       else {
-
-           // Cancel the actual Submission
-           event.preventDefault();
-       }
+	   // Cancel the actual Submission
+	   event.preventDefault();
 
 	});
 	
@@ -51,8 +47,8 @@ function buildPostData(){
 		challenges : $( "#ideaChallenges" ).val(),
 		status : "Submitted",
 		userID : "prsch",
-		createdDate : $.now(),
-		lastModifiedDate : $.now()
+		createdDate : new Date().toString(),
+		lastModifiedDate : new Date().toString()
 	};
 	return JSON.stringify(idea);
 }

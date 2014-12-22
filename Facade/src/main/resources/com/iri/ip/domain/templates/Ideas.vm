@@ -1,5 +1,6 @@
 #foreach ($Idea in $IdeaList)
 <tr>
+	<td>$Idea.getIdeaID()</td>
 	<td>$Idea.getCategoryName()</td>
 	<td>$Idea.getTeamName()</td>
 	<td>$Idea.getSummary()</td>

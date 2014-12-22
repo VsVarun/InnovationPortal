@@ -13,9 +13,12 @@
 	<!-- end: Mobile Specific -->
 	
 	<!-- start: CSS -->
+	
 	<link href="../../platform/js/library/SweetAlert/sweet-alert.css" id="alert-style" rel="stylesheet" />
-	<link href="../../platform/css/bootstrap.css" id="bootstrap-style" rel="stylesheet" />
-	<link href="../../platform/css/bootstrap-responsive.css" rel="stylesheet" />
+	
+	<link href="../../platform/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+	<link href="../../platform/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+	
 	<link href="../../platform/js/library/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" type="text/css"/>
 	<link href="../../platform/css/style.css" id="base-style" rel="stylesheet" />
 	<link href="../../platform/css/style-responsive.css" id="base-style-responsive" rel="stylesheet" />
@@ -44,17 +47,18 @@
 				</div>
 				<div class="box-content" >
 				
-					<table class="table table-striped table-bordered" 
+					<table class="table table-striped table-bordered table-condensed" 
 						data-pagination="true" 
 						data-page-list="[5, 10, 20, 50, 100, 200]" 
-						data-show-refresh="true" 
 						data-show-columns="true" 
 						data-search="true"
 						data-sort-name="Submitted_Date" 
-						data-sort-order="desc" 
+						data-sort-order="desc"
+						data-click-to-select="true" 
 						id="IdeaTable">
 					  <thead>
 						  <tr>
+						  	  <th data-field="IdeaID" data-radio="true"></th>
 							  <th data-field="Category" >Category</th>
 							  <th data-field="Team" >Team</th>
 							  <th data-field="Summary" >Summary</th>

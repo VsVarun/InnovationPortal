@@ -7,6 +7,6 @@ jQuery(document).ready(function($){
 function loadIdeaTable(){
 	getHMTL("../../../Services/Idea/getAllAsTable", function (innerHTML) {
 		$("#IdeaTableBody").html(innerHTML);
-		$("#IdeaTable").bootstrapTable()
+		$("#IdeaTable").bootstrapTable();
     }, null);
 }
