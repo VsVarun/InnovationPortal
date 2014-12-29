@@ -16,6 +16,7 @@
   <link href="../css/logincss/style.css" rel="stylesheet" />
   <link href="../css/logincss/style_responsive.css" rel="stylesheet" />
   <link href="../css/logincss/style_default.css" rel="stylesheet" id="style_color" />
+
   <!-- end: CSS -->
 
 	<!-- start: Favicon -->
@@ -30,7 +31,7 @@
   <!-- BEGIN LOGIN -->
   <div id="login">
     <!-- BEGIN LOGIN FORM -->
-    <form id="loginform" class="form-vertical no-padding no-margin" action="home.html">
+    <form id="loginform" class="form-vertical no-padding no-margin">
       <div class="lock">
           <i class="icon-lock"></i>
       </div>
@@ -56,6 +57,7 @@
 
       <input type="submit" id="login-btn" class="btn btn-block login-btn" value="Login" />
 
+
     </form>
     <!-- END LOGIN FORM -->        
   </div>
@@ -64,6 +66,27 @@
   <div id="login-copyright">
       2014 &copy; Innovation portal.
   </div>
+
+<!--        <div id="divLoading" style="position: absolute;margin:-100px 0 0 -100px; padding: 0px; position: fixed; left : 50%;
+    top: 50%; width: 230px; height: 70px; border:ridge; background-color: White; z-index: 30001;
+    opacity: .8; filter: alpha(opacity=100);display:none" >
+    <p style="color: Black;position: absolute;margin:-95px 0 0 -100px; padding: 0px; position: fixed; left : 50%;top: 50%;">
+    &nbsp;&nbsp;&nbsp;&nbsp;Loading, please wait...<img src="Loading2.gif"/>
+    </p>
+    </div>-->
+
+     <div id="divLoading" style="position: absolute;margin:-100px 0 0 -100px; padding: 0px; position: fixed; left : 50%;
+    top: 50%; width: 230px; height: 70px; border:ridge; background-color: White; z-index: 30001;
+    opacity: .8; filter: alpha(opacity=100);display:none" >
+    <p style="color: Black;position: absolute;margin:-95px 0 0 -100px; padding: 0px; position: fixed; left : 50%;top: 50%;">
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../css/images/Processing.gif"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./css/images/Loading2.gif"/>
+    </p>
+    </div>
+
+
+    
+
+
   <!-- END COPYRIGHT -->
 
   	<div class="clearfix"></div>
@@ -81,7 +104,7 @@
 	<!-- end: PlatForm Scripts -->
 
 	<!-- start: App Scripts -->
-    	<script src="../js/login.js"></script>
+    	<script src="../js/Login.js"></script>
 	<!-- end: App Scripts -->
 	
 	<!-- end: JavaScript-->
