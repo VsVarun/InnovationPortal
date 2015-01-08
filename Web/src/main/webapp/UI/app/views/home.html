@@ -22,6 +22,11 @@
 	<script type="text/javascript" src="../../platform/js/library/jQuery/jquery.pagepiling.min.js"></script>
      <!-- end: CSS -->
 
+<link rel='stylesheet' id='Link1'  href='http://fonts.googleapis.com/css?family=Roboto+Slab%3A700%7CQuicksand%3A400%2C700%2C600%7COpen+Sans%3Anormal&#038;ver=4.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='Link2'  href='http://webdesigncube.com/wp-content/themes/yeahthemes-sparkle/style.css?ver=4.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='Link3'  href='http://webdesigncube.com/wp-content/themes/yeahthemes-sparkle/css/custom-styles.css?ver=1.0.3' type='text/css' media='all' />
+
+
       	<!-- start: Favicon -->
 	<link rel="shortcut icon" href="../../platform/img/logo/iri_icon.png" />
 	<!-- end: Favicon -->
@@ -29,8 +34,7 @@
       <!-- Script for the page piling-->
       	<script type="text/javascript">
       	    $(document).ready(function () {
-      	        
-      	        /*
+      	             	        /*
                 * Plugin intialization
                 */
       	        $('#pagepiling').pagepiling({
@@ -74,8 +78,43 @@
 
 
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+
   </head>
-  <body>
+  <body onload="CheckCookie();">
+
+   	<div class="inner-wrapper">
+
+	<header id="masthead" class="site-header full-width-wrapper hidden-print" role="banner">
+	
+		<div class="site-banner" id="site-banner">
+			<div class="container">
+				<div class="row"><div class="col-md-2 site-branding pull-left">
+				<h3 class="site-logo image-logo"><a href="#" title="Webdesigncube" rel="home"><img src="../css/images/IRIlogo.png"></a></h3>
+			</div><nav id="site-navigation" class="col-sm-12 col-md-10 main-navigation" role="navigation">
+
+			<div class="site-navigation-menu-container"><ul id="menu-main-menu" class="menu"><li class="site-mobile-menu-toggle hidden-md hidden-lg">
+
+ <li id="SubmitIdea" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">Submit Idea</a></li>
+ <li id="MyIdeas" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">My Ideas</a></li>
+ <li id="Reports" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">Reports</a></li>
+ <li id="Ratings" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">Ratings</a></li>
+ <li id="Admin" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">Admin</a></li>
+ <li id="SignOut" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">SignOut</a></li>
+
+
+<li class="menu-item-type-custom menu-item-social-networks">
+    <a>Welcome : Suman Devan</a>
+</li>
+
+			                                            </ul></div>
+		</nav><!-- #site-navigation --></div>
+			</div>
+		</div>		
+	</header><!-- #masthead -->
+	
+</div>
+
 
 
       <div id="pagepiling">
@@ -111,5 +150,19 @@
       <div class="icon love"></div>-->
 
     </div>
+
+                <!-- start: JavaScript-->
+
+    	<!-- start: PlatForm Scripts -->
+      <script src="../../platform/js/library/SweetAlert/sweet-alert.min.js"></script>
+	<script src="../../platform/js/library/jQuery/jquery.cookie.js"></script>
+	<!-- end: PlatForm Scripts -->
+
+	<!-- start: App Scripts -->
+    	<script src="../js/Common.js"></script>
+	<!-- end: App Scripts -->
+	
+	<!-- end: JavaScript-->
+
   </body>
 </html>
