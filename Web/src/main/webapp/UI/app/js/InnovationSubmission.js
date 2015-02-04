@@ -1,7 +1,7 @@
 jQuery(document).ready(function($){
 	
-	//loadCategoryList();
-	//loadTeamList();
+	loadCategoryList();
+	loadTeamList();
 	
 	$( "#cancelBtn" ).click(function() {
     	location.href='home.html';
@@ -47,7 +47,7 @@ function buildPostData(){
 		benefits : $( "#ideaBenefits" ).val(),
 		challenges : $( "#ideaChallenges" ).val(),
 		status : "Submitted",
-		userID : "prsch",
+		userName : "prsch",
 		createdDate : new Date().toString(),
 		lastModifiedDate : new Date().toString()
 	};

@@ -25,7 +25,7 @@
 
             
             var obj1 = JSON.parse(sessionStorage.getItem("key"));
-            alert(obj1[1]);
+            //alert(obj1[1]);
 
            
         });

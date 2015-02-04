@@ -3,6 +3,7 @@ package com.iri.ip.controllers;
 import java.util.List;
 
 import org.springframework.util.MimeTypeUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +26,11 @@ public class IdeaController {
 	@RequestMapping(value = "/getAllAsTable", method = RequestMethod.GET, produces=(MimeTypeUtils.TEXT_HTML_VALUE))
     public @ResponseBody String getAllAsTable() throws Exception {
 		return AppContext.getRepositoryBean(IdeaRepository.class).getAllAsTable();
+    }
+	
+	@RequestMapping(value = "/getUserIdeasAsTable/{userName}", method = RequestMethod.GET, produces=(MimeTypeUtils.TEXT_HTML_VALUE))
+    public @ResponseBody String getUserIdeasAsTable(@PathVariable String userName) throws Exception {
+		return AppContext.getRepositoryBean(IdeaRepository.class).getUserIdeasAsTable(userName);
     }
 	
 	@RequestMapping(value = "/Submit", method = RequestMethod.POST, consumes=(MimeTypeUtils.APPLICATION_JSON_VALUE))

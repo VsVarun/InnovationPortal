@@ -4,7 +4,7 @@
 	<!-- start: Meta -->
 	<meta charset="utf-8" />
 	<title>iRI Innovation Portal</title>
-	<meta name="description" content="Page to Submit ideas." />
+	<meta name="description" content="View the Ideas Submitted by the me." />
 	<meta name="author" content="Varun Chandresekar" />
 	<!-- end: Meta -->
 	
@@ -13,9 +13,13 @@
 	<!-- end: Mobile Specific -->
 	
 	<!-- start: CSS -->
+	
 	<link href="../../platform/js/library/SweetAlert/sweet-alert.css" id="alert-style" rel="stylesheet" />
-	<link href="../../platform/css/bootstrap.css" id="bootstrap-style" rel="stylesheet" />
-	<link href="../../platform/css/bootstrap-responsive.css" rel="stylesheet" />
+	
+	<link href="../../platform/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+	<link href="../../platform/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+	
+	<link href="../../platform/js/library/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" type="text/css"/>
 	<link href="../../platform/css/style.css" id="base-style" rel="stylesheet" />
 	<link href="../../platform/css/style-responsive.css" id="base-style-responsive" rel="stylesheet" />
 	<link href="../../platform/font/platform-font-tahoma.css" id="font-style" rel="stylesheet" type="text/css"/>
@@ -29,69 +33,55 @@
 </head>
 <body>
 	
-	<div class="row-fluid sortable">
-		<div class="box span12">
-			<div class="box-header" data-original-title="">
-				<h1><i class="halflings-icon pencil"></i><span class="break"></span>Submit an Idea</h1>
-				<div class="box-icon">
-					<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+	<!-- start: Content -->
+	<div id="content" class="span11">
+		
+		<div class="row-fluid sortable">		
+		
+			<div class="box span12">
+				<div class="box-header" data-original-title="">
+					<h2><i class="halflings-icon info-sign"></i><span class="break"></span>My Ideas</h2>
+					<div class="box-icon">
+						<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+					</div>
 				</div>
-			</div>
-			<div class="box-content">
-				<form id="IdeaSubmission" action="" class="form-horizontal" >
-					<fieldset>
+				<div class="box-content" >
+				
+					<table class="table table-striped table-bordered table-condensed" 
+						data-pagination="true" 
+						data-page-list="[5, 10, 20, 50, 100, 200]" 
+						data-show-columns="true" 
+						data-search="true"
+						data-sort-name="Submitted_Date" 
+						data-sort-order="desc"
+						data-click-to-select="true" 
+						id="IdeaTable">
+					  <thead>
+						  <tr>
+						  	  <th data-field="IdeaID" data-radio="true"></th>
+							  <th data-field="Category" >Category</th>
+							  <th data-field="Team" >Team</th>
+							  <th data-field="Summary" >Summary</th>
+							  <th data-field="Description" >Description</th>
+							  <th data-field="Benefits" >Benefits</th>
+							  <th data-field="Challenges" >Challenges</th>
+							  <th data-field="Status" >Status</th>
+							  <th data-field="Submitted_Date" data-sortable="true">Submitted Date</th>
+						  </tr>
+					  </thead>   
+					  <tbody id="IdeaTableBody">
+
+					  </tbody>
+					 </table>
 					  
-					  <div class="control-group" >
-						<label class="control-label" for="CategoryList">Category</label>
-						<div class="controls" id="CategoryDropDown">
-						</div>
-					  </div>
-					  
-					   <div class="control-group" >
-						<label class="control-label" for="TeamList">Team</label>
-						<div class="controls" id="TeamDropDown">
-						</div>
-					  </div>
-					 
-					  <div class="control-group">
-						<label class="control-label" for="ideaSummary">Summary</label>
-						<div class="controls">
-						  <input class="input-xxlarge" id="ideaSummary" type="text" placeholder="Enter the summary" style="width:60%;"/>
-                           
-						</div>
-					  </div>
+				</div>
+			</div><!--/span-->
+		
+		</div><!--/row-->
+		
 
-					  <div class="control-group">
-						<label class="control-label" for="ideaDescription">Description</label>
-						 <div class="controls">
-							<textarea id="ideaDescription" placeholder="Enter the Description" style="width:60%;height:100px;"></textarea>
-						 </div>
-					  </div>
-
-					  <div class="control-group">
-						<label class="control-label" for="ideaBenefits">Benefits</label>
-						 <div class="controls">
-							<textarea id="ideaBenefits" placeholder="Any Benefits?" style="width:60%;height:100px;"></textarea>
-						 </div>
-					  </div>
-
-					  <div class="control-group">
-						<label class="control-label" for="ideaChallenges">Challenges</label>
-						 <div class="controls">
-							<textarea id="ideaChallenges" placeholder="Let us know the challenges!!" style="width:60%;height:100px;"></textarea>
-							<div style="position: absolute; bottom: 0; right: 0;">
-								<button type="submit" class="btn btn-primary">Save changes</button>
-								<button class="btn" id="cancelBtn">Cancel</button>
-							</div>
-						 </div>
-					  </div>
-					</fieldset>
-				</form>
-			
-			</div>
-		</div><!--/span-->
-	
-	</div><!--/row-->
+	</div>
+	<!--/end: Content-->
 		
 	<div class="clearfix"></div>
 	
@@ -105,6 +95,7 @@
 	<script src="../../platform/js/library/jQuery/jquery-ui-1.8.21.custom.min.js"></script>
 	<script src="../../platform/js/library/modernizr.js"></script>
 	<script src="../../platform/js/library/bootstrap.js"></script>
+	<script src="../../platform/js/library/bootstrap-table/bootstrap-table.min.js"></script>
 	<script src="../../platform/js/library/jQuery/jquery.cookie.js"></script>
 	<script src='../../platform/js/library/fullcalendar.min.js'></script>
 	<script src='../../platform/js/library/jQuery/jquery.dataTables.min.js'></script>
@@ -132,7 +123,7 @@
 	<!-- end: PlatForm Scripts -->
 	
 	<!-- start: App Scripts -->
-	<script src="../js/InnovationSubmission.js"></script>
+	<script src="../js/MyIdeas.js"></script>
 	<!-- end: App Scripts -->
 	
 	<!-- end: JavaScript-->

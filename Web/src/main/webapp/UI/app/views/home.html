@@ -1,168 +1,67 @@
-﻿
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>iRI Innovation Portal</title>
+<head>
+<title>IRi Innovation Portal</title>
 
-    <meta name="description" content="Home Page" />
-	<meta name="author" content="Suman Devan" />
+<meta name="description" content="Home Page" />
+<meta name="author" content="Suman Devan" />
 
+<!-- start: Home Page CSS -->
+<link href="../../platform/js/library/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../css/homecss/styles.css" media="all" rel="stylesheet">
+<link href="../css/homecss/NavBar.css" media="all" rel="stylesheet">
+<!-- end: CSS -->
 
+<!-- start: Favicon -->
+<link rel="shortcut icon" href="../../platform/img/logo/iri_icon.png" />
+<!-- end: Favicon -->
 
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
-    <link href="../css/homecss/styles.css" media="all" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.1/modernizr.min.js"></script>
-
-
-     <!-- start: Home Page CSS -->
-  	<link rel="stylesheet" type="text/css" href="../../platform/css/jquery.pagepiling.css" />
-    <link rel="stylesheet" type="text/css" href="../../platform/css/examples.css" /> 
-	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
-    <script src="../../platform/js/library/jQuery/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="../../platform/js/library/jQuery/jquery.pagepiling.min.js"></script>
-     <!-- end: CSS -->
-
-<link rel='stylesheet' id='Link1'  href='http://fonts.googleapis.com/css?family=Roboto+Slab%3A700%7CQuicksand%3A400%2C700%2C600%7COpen+Sans%3Anormal&#038;ver=4.0.1' type='text/css' media='all' />
-<link rel='stylesheet' id='Link2'  href='http://webdesigncube.com/wp-content/themes/yeahthemes-sparkle/style.css?ver=4.0.1' type='text/css' media='all' />
-<link rel='stylesheet' id='Link3'  href='http://webdesigncube.com/wp-content/themes/yeahthemes-sparkle/css/custom-styles.css?ver=1.0.3' type='text/css' media='all' />
+<meta
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+	name="viewport" />
 
 
-      	<!-- start: Favicon -->
-	<link rel="shortcut icon" href="../../platform/img/logo/iri_icon.png" />
-	<!-- end: Favicon -->
+</head>
+<body onload="CheckCookie();">
 
-      <!-- Script for the page piling-->
-      	<script type="text/javascript">
-      	    $(document).ready(function () {
-      	             	        /*
-                * Plugin intialization
-                */
-      	        $('#pagepiling').pagepiling({
-      	            menu: '#menu',
-      	            anchors: ['Home', 'InnovationSubmission', 'MyIdeas', 'Reports'],
-      	            sectionsColor: ['#F2F2F2', 'white', 'white', '#39C'],
-      	            navigation: {
-      	                'position': 'right',
-      	                'tooltips': ['Page 1', 'Page 2', 'Page 3', 'Page 4']
-      	            },
-      	            afterRender: function () {
-      	                $('#pp-nav').addClass('custom');
-      	            },
-      	            afterLoad: function (anchorLink, index) {
-      	                if (index > 1) {
-      	                    $('#pp-nav').removeClass('custom');
-      	                } else {
-      	                    $('#pp-nav').addClass('custom');
-      	                }
-      	            }
-      	        });
-
-
-      	        /*
-                * Internal use of the demo website
-                */
-      	        $('#showExamples').click(function (e) {
-      	            e.stopPropagation();
-      	            e.preventDefault();
-      	            $('#examplesList').toggle();
-      	        });
-
-      	        $('html').click(function () {
-      	            $('#examplesList').hide();
-      	        });
-      	    });
-
-
-    </script>
-
-
-
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-
-
-  </head>
-  <body onload="CheckCookie();">
-
-   	<div class="inner-wrapper">
-
-	<header id="masthead" class="site-header full-width-wrapper hidden-print" role="banner">
-	
-		<div class="site-banner" id="site-banner">
+	<nav class="small">
+		<div class="main-nav navbar-collapse collapse">
 			<div class="container">
-				<div class="row"><div class="col-md-2 site-branding pull-left">
-				<h3 class="site-logo image-logo"><a href="#" title="Webdesigncube" rel="home"><img src="../css/images/IRIlogo.png"></a></h3>
-			</div><nav id="site-navigation" class="col-sm-12 col-md-10 main-navigation" role="navigation">
-
-			<div class="site-navigation-menu-container"><ul id="menu-main-menu" class="menu"><li class="site-mobile-menu-toggle hidden-md hidden-lg">
-
- <li id="SubmitIdea" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">Submit Idea</a></li>
- <li id="MyIdeas" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">My Ideas</a></li>
- <li id="Reports" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">Reports</a></li>
- <li id="Ratings" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">Ratings</a></li>
- <li id="Admin" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">Admin</a></li>
- <li id="SignOut" class="menu-item menu-item-type-post_type menu-item-object-page last-child menu-item"><a href="#">SignOut</a></li>
-
-
-<li class="menu-item-type-custom menu-item-social-networks">
-    <a>Welcome : Suman Devan</a>
-</li>
-
-			                                            </ul></div>
-		</nav><!-- #site-navigation --></div>
+				
+				<ul id="navigation" class="nav nav-justified">
+					<li ><a style="width:50px" href="home.html" title="IRi Innovation Portal"> <img
+						src="../css/images/IRIlogo.png">
+					</a></li>
+					<li id='li-home'><a onClick="loadFrame('li-home','IconMenus.html');">Home</a></li>
+					<li id='li-submit'><a onClick="loadFrame('li-submit','InnovationSubmission.html');">Submit An Idea</a></li>
+					<li id='li-allIdeas'><a onClick="loadFrame('li-allIdeas','AllIdeas.html');">All Ideas</a></li>
+					<li id='li-myIdeas'><a onClick="loadFrame('li-myIdeas','MyIdeas.html');">My Ideas</a></li>
+					<li id='li-reports'><a href="#">Reports</a></li>
+					<li id='li-rating'><a href="#">Rating</a></li>
+					<li id='li-admin'><a href="#">Admin</a></li>
+					<li ><a href="#">Sign-out User</a></li>
+				</ul>
 			</div>
-		</div>		
-	</header><!-- #masthead -->
-	
-</div>
+		</div>
+	</nav>
 
+	<iframe id="iFrame" width="100%" height="91%" style="margin-top: 4%">
+	</iframe>
 
+	<!-- start: JavaScript-->
 
-      <div id="pagepiling">
-
-       <div class="section" id="section1">
-       <a href="#InnovationSubmission"><div class="icon lightbulb"></div></a>
-       <a href="#MyIdeas"><div class="icon bullseye"></div></a>
-       <div class="icon search"></div>
-       <div class="icon trophy"></div>
-       <div class="icon cogs"></div>
-
-	    </div>
-	    <div class="section" id="section2">
-               <object type="text/html" data="InnovationSubmission.html" width="100%" height="100%" style="overflow:auto;"> </object>
-	    </div>
-	    <div class="section" id="section3">
-             <object type="text/html" data="SubmitIdeas.html" width="100%" height="100%" style="overflow:auto;"> </object>
-	    	
-	    </div>
-	    <div class="section" id="section4">
-	    	<div class="icon trophy"></div>
-	    </div>
-	</div>
-
-
-<!--            <div class="icon bullseye"></div>
-      <div class="icon lightbulb"  onclick="location.href='innovationsubmission.html'"></div>
-      <div class="icon cogs"></div>
-      <div class="icon chat"></div>
-      <div class="icon phone"></div>
-      <div class="icon search"></div>
-      <div class="icon trophy"></div>
-      <div class="icon love"></div>-->
-
-    </div>
-
-                <!-- start: JavaScript-->
-
-    	<!-- start: PlatForm Scripts -->
-      <script src="../../platform/js/library/SweetAlert/sweet-alert.min.js"></script>
+	<!-- start: PlatForm Scripts -->
+	<script src="../../platform/js/library/jQuery/jquery-1.11.1.min.js"></script>
 	<script src="../../platform/js/library/jQuery/jquery.cookie.js"></script>
 	<!-- end: PlatForm Scripts -->
 
 	<!-- start: App Scripts -->
-    	<script src="../js/Common.js"></script>
+	<script src="../js/Common.js"></script>
+	<script src="../js/home.js"></script>
 	<!-- end: App Scripts -->
-	
+
 	<!-- end: JavaScript-->
 
-  </body>
+</body>
 </html>

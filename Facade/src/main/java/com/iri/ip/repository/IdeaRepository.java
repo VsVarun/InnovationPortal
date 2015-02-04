@@ -10,6 +10,8 @@ import java.util.List;
 import org.apache.velocity.VelocityContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.iri.ip.domain.IdeaDAO;
@@ -45,8 +47,36 @@ public class IdeaRepository {
 		return retVal;
 	}
 	
+	public List<IdeaDAO> getUserIdeas(String userName){
+		List<IdeaDAO> retVal = null;
+		Query query = new Query();
+		query.addCriteria(Criteria.where("userName").is(userName));
+		if(this.mongoTemplate.collectionExists(IdeaDAO.class)){
+			retVal = this.mongoTemplate.find(query, IdeaDAO.class);
+		}else{
+			createCollection();
+		}
+		return retVal;
+	}
+	
 	public String getAllAsTable(){
 		List<IdeaDAO> ideas = getAll();
+		String innerHTML = "";
+		VelocityContext context = null;
+		try {
+			if( ideas!=null ){
+				context = new VelocityContext();
+				context.put("IdeaList", ideas);
+				innerHTML = TemplateUtils.parseTemplate(context, IDEAS_TABLE_VM);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return innerHTML;
+	}
+	
+	public String getUserIdeasAsTable(String userName){
+		List<IdeaDAO> ideas = getUserIdeas(userName);
 		String innerHTML = "";
 		VelocityContext context = null;
 		try {
